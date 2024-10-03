@@ -22,16 +22,12 @@ To set up and run the application on your local machine, follow these steps:
 ### Step 1: Clone the repository
 Clone this repository to your local machine using the following command:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Sujit-Rukade/OCR-Web-App.git
 ```
 
 
 ### Step 2: Navigate to the project directory
-Open a command prompt or terminal, and change your current directory to where the app.py file is located:
-
-```bash
-cd <project-folder-path>
-```
+Open a command prompt or terminal, and change your current directory to where the app.py file is located.
 
 ### Step 3: Create a Python environment
 Create a new environment for the project using Anaconda:
