@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Optical Character Recognition App</title>
+
+  <!-- CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+  <style>
+    /* Navbar Styling */
+    nav {
+      background-color: #893f45;
+      height: 100px;
+    }
+
+    /* Brand Logo Styling */
+    .brand-logo h5 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    /* File Upload Button */
+    .file-field .btn {
+      background-color: #893f45;
+      padding: 0 20px;
+      font-size: 16px;
+    }
+
+    .file-field .file-path-wrapper input {
+      margin-left: 15px;
+    }
+
+    /* Submit Button Hover Effect */
+    #submit:hover {
+      background-color: #ad5b5f;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Center Text Section */
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-wrapper a.orange-text:hover {
+      color: #ffcc80;
+    }
+
+    /* Card for Extracted Text */
+    .card {
+      margin-top: 50px;
+      padding: 20px;
+    }
+
+    /* Image Preview Section */
+    .img-preview {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .file-field .file-path-wrapper input {
+        margin-left: 0;
+      }
+
+      .img-preview img {
+        width: 100%;
+      }
+
+      .brand-logo h5 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo center">
+        <h5>Optical Character Recognition App</h5>
+      </a>
+      <div class="right">
+        Made by <a class="orange-text text-lighten-3">Sujit Rukade</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <div class="row center">
+        <form action="/" method="post" class="col s12" enctype="multipart/form-data">
+          <div class="row">
+            <!-- Upload Image Section -->
+            <div class="input-field col s12 m6">
+              <h6><b>Upload Image</b></h6>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Browse</span>
+                  <input type="file" name="image_upload" id="image_upload" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload Image" name="image_name" id="image_name" />
+                </div>
+              </div>
+              <div class="row center">
+                <button id="submit" type="submit" class="btn-large waves-effect" style="background-color: #893f45; margin-top: 30px;">Extract</button>
+              </div>
+            </div>
+
+            <!-- Image Preview Section -->
+            <div class="col s12 m6 img-preview">
+              <img class="responsive-img" src="{{ url_for('static', filename=full_filename) }}" alt="Uploaded Image">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Extracted Text Section -->
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            {% if text %}
+              <h5>Extracted Text</h5>
+              {% for i in text: %}
+              <p>{{ i }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript">
+    document.getElementById('image_upload').onchange = function () {
+        document.getElementById('image_name').value = this.value.slice(12, 100);
+    };
+  </script>
+</body>
+</html>

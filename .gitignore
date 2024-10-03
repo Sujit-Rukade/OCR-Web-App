@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Environment variables file
+.env
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Flask related
+instance/
+.pytest_cache/
+*.sqlite3
+*.db
+
+# Static files
+static/css/
+static/js/
+
+# Media files (ignore uploaded images)
+uploads/
+
+# Ignore IDE-specific files (optional)
+.vscode/
+.idea/
+
+# Cache files
+.cache/
+
+# Ignore node_modules if any frontend libraries used
+node_modules/
+
+# Ignore package-lock.json or yarn.lock if applicable
+package-lock.json
+yarn.lock
+
+# Ignore compiled python packages
+*.egg-info/
+dist/
+build/
